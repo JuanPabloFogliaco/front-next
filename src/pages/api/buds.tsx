@@ -1,8 +1,9 @@
 import axios from "axios";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const GetBudsAPI = async () => {
   try {
-    const response = await axios.get("http://31.220.60.102:8080/buds", {
+    const response = await axios.get(`${apiUrl}/buds`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
       },

@@ -1,9 +1,10 @@
 import axios from "axios";
-
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 export const UserAPI = async (email: string) => {
   try {
     const response = await axios.get(
-      "http://31.220.60.102:8080/user?email=" + email,
+      `${apiUrl}/user?email="${email}`,
+
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),

@@ -1,4 +1,5 @@
 import axios from "axios";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export type ILoginAsync = {
   email: string;
@@ -8,7 +9,7 @@ export type ILoginAsync = {
 export const LoginAPI = async (request: ILoginAsync) => {
   try {
     const { email, password } = request;
-    const response = await axios.post("http://31.220.60.102:8080/auth/login", {
+    const response = await axios.post(`${apiUrl}/auth/login`, {
       email,
       password,
     });

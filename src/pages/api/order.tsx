@@ -1,4 +1,5 @@
 import axios from "axios";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 interface IPostOrderAsync {
   userEmail: string;
@@ -12,7 +13,7 @@ interface IOrderBuds {
 
 export const InsertOrderBudsAPI = async (request: IPostOrderAsync) => {
   try {
-    const response = await axios.post("http://31.220.60.102:8080/order", request, {
+    const response = await axios.post(`${apiUrl}/order`, request, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
       },
