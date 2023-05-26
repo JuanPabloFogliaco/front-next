@@ -96,9 +96,7 @@ export default function Login() {
               />
             </div>
           </ContainerInputs>
-          <TextInput style={{ color: "white" }}>
-            {error?.response?.data?.error || error}
-          </TextInput>
+          <TextInput style={{ color: "white" }}></TextInput>
           <ContainerButtons>
             <Button onClick={(e: any) => handleSubmit(e)}>Ingresar</Button>
             <Button onClick={(e: any) => backToHome(e)}>Volver</Button>
