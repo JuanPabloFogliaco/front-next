@@ -31,8 +31,7 @@ export default function Home() {
 
   return (
     <LayoutPageMenu handleLogout={handleLogout} data={data}>
-      <DetailShopFeature />
-      <BudsFeature />
+   
     </LayoutPageMenu>
   );
 }
