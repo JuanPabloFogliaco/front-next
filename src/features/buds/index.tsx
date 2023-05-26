@@ -16,7 +16,7 @@ export const BudsFeature = () => {
               increment={() =>
                 dispatch(incrementBud({ name: e.name, count: 1 }))
               }
-              key={e.id}
+              key={e.name}
               title={e.name}
               imageSrc="https://positronics.eu/wp-content/uploads/2022/07/amnesiamistery.jpg"
             />

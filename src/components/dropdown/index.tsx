@@ -16,7 +16,6 @@ import {
 
 const Dropdown = () => {
   const buds = useAppSelector((state) => state.buds.inShop);
-  const errorOrderSend = useAppSelector((state) => state.order.error);
   const dispatch = useAppDispatch();
 
   const sendOrder = async () => {
@@ -37,7 +36,7 @@ const Dropdown = () => {
         <Separator />
         {buds &&
           buds?.map((e: any) => (
-            <ItemDetail>
+            <ItemDetail key={e.name}>
               <TitleItemDetail>{e.name}</TitleItemDetail>
               <OptionsItemDetail>
                 {e.count}g
