@@ -35,30 +35,31 @@ const Dropdown = () => {
       <ListDetail>
         {buds.length === 0 && "No hay elementos agregados."}
         <Separator />
-        {buds?.map((e: any) => (
-          <ItemDetail>
-            <TitleItemDetail>{e.name}</TitleItemDetail>
-            <OptionsItemDetail>
-              {e.count}g
-              <Separator />
-              <IncrementBtn
-                onClick={() =>
-                  dispatch(incrementBud({ name: e.name, count: 1 }))
-                }
-              >
-                +
-              </IncrementBtn>
-              <Separator />
-              <DecrementtBtn
-                onClick={() =>
-                  dispatch(decrementBud({ name: e.name, count: 1 }))
-                }
-              >
-                -
-              </DecrementtBtn>
-            </OptionsItemDetail>
-          </ItemDetail>
-        ))}
+        {buds &&
+          buds?.map((e: any) => (
+            <ItemDetail>
+              <TitleItemDetail>{e.name}</TitleItemDetail>
+              <OptionsItemDetail>
+                {e.count}g
+                <Separator />
+                <IncrementBtn
+                  onClick={() =>
+                    dispatch(incrementBud({ name: e.name, count: 1 }))
+                  }
+                >
+                  +
+                </IncrementBtn>
+                <Separator />
+                <DecrementtBtn
+                  onClick={() =>
+                    dispatch(decrementBud({ name: e.name, count: 1 }))
+                  }
+                >
+                  -
+                </DecrementtBtn>
+              </OptionsItemDetail>
+            </ItemDetail>
+          ))}
 
         <ButtonSend
           onClick={() => sendOrder()}
