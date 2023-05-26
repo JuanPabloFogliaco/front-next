@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL_DEV;
 
 export const GetBudsAPI = async () => {
   try {
