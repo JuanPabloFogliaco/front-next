@@ -9,7 +9,7 @@ export type ILoginAsync = {
 export const LoginAPI = async (request: ILoginAsync) => {
   try {
     const { email, password } = request;
-    const response = await axios.post(`${apiUrl}/auth/login`, {
+    const response = await axios.post(`http://31.220.60.102:8080/auth/login`, {
       email,
       password,
     });
