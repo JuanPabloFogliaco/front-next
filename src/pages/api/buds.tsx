@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const GetBudsAPI = async () => {
   try {
-    const response = await axios.get("http://localhost:8080/buds", {
+    const response = await axios.get("http://31.220.60.102:8080/buds", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
       },

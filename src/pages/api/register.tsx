@@ -9,7 +9,7 @@ export type IRegisterAsync = {
 export const RegisterAPI = async (request: IRegisterAsync) => {
   try {
     const { email, password, username } = request;
-    const response = await axios.post("http://localhost:8080/auth/register", {
+    const response = await axios.post("http://31.220.60.102:8080/auth/register", {
       email,
       password,
       username,
