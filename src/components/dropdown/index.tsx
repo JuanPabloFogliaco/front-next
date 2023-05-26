@@ -29,8 +29,6 @@ const Dropdown = () => {
     );
   };
 
-  console.log(errorOrderSend);
-
   return (
     <Wrapper>
       <TitleDetail>Detalle del pedido</TitleDetail>
@@ -62,8 +60,6 @@ const Dropdown = () => {
           </ItemDetail>
         ))}
 
-
-        
         <ButtonSend
           onClick={() => sendOrder()}
           disabled={buds.length == 0}
