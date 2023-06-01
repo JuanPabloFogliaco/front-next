@@ -1,5 +1,4 @@
 import { Link, MenuItem, MenuItems, MenuWrapper } from "./styleMenu";
-import Logo from "../../../public/logo.png";
 import Image from "next/image";
 
 interface IMenu {
@@ -10,7 +9,7 @@ interface IMenu {
 const Menu = ({ data, handleLogout }: IMenu) => {
   return (
     <MenuWrapper>
-      <Image width={60} height={50} src={Logo} alt={""} />
+      <Image width={60} height={50} src={"/logo.png"} alt={""} />
       <MenuItems>
         <MenuItem>
           <Link onClick={handleLogout}>Salir</Link>

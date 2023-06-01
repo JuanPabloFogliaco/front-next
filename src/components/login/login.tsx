@@ -23,7 +23,7 @@ import { validateDataLogin } from "../../utils/validations";
 
 export default function Login() {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
 
   const error = useAppSelector((state) => state.login.error);
   const email = useAppSelector((state) => state.login.email);

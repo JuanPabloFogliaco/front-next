@@ -24,7 +24,7 @@ import { validateDataRegister } from "../../utils/validations";
 
 export default function Register() {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
 
   const error = useAppSelector((state) => state.register.error);
   const email = useAppSelector((state) => state.register.email);

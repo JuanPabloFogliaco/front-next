@@ -1,6 +1,5 @@
 import react, { useEffect } from "react";
 import { useRouter } from "next/router";
-import Logo from "../../public/logo.png";
 import {
   Buttons,
   LoginButton,
@@ -34,7 +33,7 @@ export default function Index() {
         height={200}
           width={200}
           alt="asd"
-          src={Logo}
+          src={"/logo.png"}
           style={{zIndex: 1}}
         />
         <Title>Club social de cannabis</Title>
