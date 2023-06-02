@@ -1,9 +1,9 @@
 import axios from "axios";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL_DEV;
 
-export const GetBudsAPI = async () => {
+export const GetProductsAPI = async () => {
   try {
-    const response = await axios.get(`${apiUrl}/buds`, {
+    const response = await axios.get(`${apiUrl}/products`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
       },

@@ -12,7 +12,7 @@ export const TitleHome = styled.div`
   padding-bottom: 10px;
 `;
 
-export const AmountBuds = styled.div`
+export const AmountProducts = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

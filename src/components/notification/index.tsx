@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NotificationContainer, NotificationText } from "./style";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setNotificationBud } from "../../redux/slices/budsSlice";
+import { setNotificationBud } from "../../redux/slices/productsSlice";
 
 interface INotification {
   text: string;
@@ -9,7 +9,7 @@ interface INotification {
 
 const Notification = ({ text }: INotification) => {
   const dispatch = useAppDispatch();
-  const notification = useAppSelector((state) => state.buds.notification);
+  const notification = useAppSelector((state) => state.products.notification);
 
   useEffect(() => {
     const timer = setTimeout(() => {

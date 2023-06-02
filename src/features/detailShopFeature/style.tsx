@@ -12,7 +12,7 @@ export const TitleHome = styled.div`
   padding-bottom: 10px;
 `;
 
-export const AmountBuds = styled.div`
+export const AmountProducts = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -63,7 +63,7 @@ export const BtnAmount = styled.div`
   cursor: pointer;
 `;
 
-export const WrapperBuds = styled.div`
+export const WrapperProducts = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { AmountBuds, Separator, TitleAmount, TitleHome } from "./style";
+import { AmountProducts, Separator, TitleAmount, TitleHome } from "./style";
 import { BiDownArrow } from "react-icons/bi";
 import { RootState } from "../../redux/store";
-import { selectTotalCount } from "../../redux/slices/budsSlice";
+import { selectTotalCount } from "../../redux/slices/productsSlice";
 import { useState } from "react";
 import Dropdown from "../../components/dropdown";
 
@@ -12,13 +12,13 @@ export const DetailShopFeature = () => {
 
   return (
     <>
-      <AmountBuds>
+      <AmountProducts>
         <TitleHome>Mis cocos</TitleHome>
         <TitleAmount onClick={() => setIsOpenDropDown(!isOpenDropDown)}>
           Total: {totalCount} g <Separator />
           <BiDownArrow color="black" />
         </TitleAmount>
-      </AmountBuds>
+      </AmountProducts>
       <>{isOpenDropDown && <Dropdown></Dropdown>}</>
     </>
   );

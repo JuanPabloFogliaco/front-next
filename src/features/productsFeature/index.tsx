@@ -1,20 +1,20 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { decrementBud, incrementBud } from "../../redux/slices/budsSlice";
+import { incrementProduct } from "../../redux/slices/productsSlice";
 import Card from "../../components/card";
-import { WrapperBuds } from "./style";
+import { WrapperProducts } from "./style";
 
-export const BudsFeature = () => {
+export const ProductsFeature = () => {
   const dispatch = useAppDispatch();
-  const buds = useAppSelector((state) => state.buds.data);
+  const products = useAppSelector((state) => state.products.data);
 
   return (
-    <WrapperBuds>
-      {buds &&
-        buds?.map((e: any) => {
+    <WrapperProducts>
+      {products && Array.isArray(products) &&
+        products.map((e: any) => {
           return (
             <Card
               increment={() =>
-                dispatch(incrementBud({ name: e.name, count: 1 }))
+                dispatch(incrementProduct({ name: e.name, count: 1 }))
               }
               key={e.name}
               title={e.name}
@@ -22,6 +22,6 @@ export const BudsFeature = () => {
             />
           );
         })}
-    </WrapperBuds>
+    </WrapperProducts>
   );
 };

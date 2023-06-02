@@ -3,15 +3,15 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL_DEV;
 
 interface IPostOrderAsync {
   userEmail: string;
-  order: Array<IOrderBuds>;
+  order: Array<IOrderProducts>;
 }
 
-interface IOrderBuds {
+interface IOrderProducts {
   name: string;
   count: number;
 }
 
-export const InsertOrderBudsAPI = async (request: IPostOrderAsync) => {
+export const InsertOrderProductsAPI = async (request: IPostOrderAsync) => {
   try {
     const response = await axios.post(`${apiUrl}/order`, request, {
       headers: {

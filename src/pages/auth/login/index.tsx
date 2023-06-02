@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Login from "../../../components/login/login";
 import { useRouter } from "next/router";
+import LoginFeature from "../../../features/loginFeature";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -10,5 +10,5 @@ export default function LoginPage() {
     if (token) router.push("/home");
   }, []);
 
-  return <Login />;
+  return <LoginFeature />;
 }

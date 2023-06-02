@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { GetBudsAPI } from "../../pages/api/buds";
+import { GetProductsAPI } from "../../pages/api/products";
 import { RootState } from "../store";
 
-export type IBudsAsync = {
+export type IProductsAsync = {
   email: string;
   password: string;
 };
@@ -12,7 +12,7 @@ interface InShop {
   name: string;
 }
 
-export type BudsState = {
+export type ProductsState = {
   error: any;
   loading: boolean;
   data: [];
@@ -20,7 +20,7 @@ export type BudsState = {
   notification: boolean;
 };
 
-const initialState: BudsState = {
+const initialState: ProductsState = {
   error: "",
   loading: false,
   data: [],
@@ -28,17 +28,17 @@ const initialState: BudsState = {
   notification: false,
 };
 
-export const GetBudsAsync = createAsyncThunk("buds", async () => {
-  const response = await GetBudsAPI();
+export const GetProductsAsync = createAsyncThunk("products", async () => {
+  const response = await GetProductsAPI();
   return response;
 });
 
-export const BudsSlice = createSlice({
-  name: "buds",
+export const productsSlice = createSlice({
+  name: "products",
   initialState,
 
   reducers: {
-    incrementBud: (state, action) => {
+    incrementProduct: (state, action) => {
       const { name, count } = action.payload;
 
       const itemIndex = state.inShop.findIndex((item) => item.name === name);
@@ -51,7 +51,7 @@ export const BudsSlice = createSlice({
         state.notification = true;
       }
     },
-    decrementBud: (state, action) => {
+    decrementProduct: (state, action) => {
       const { count, name } = action.payload;
       const itemIndex = state.inShop.findIndex((item) => item.name === name);
 
@@ -63,31 +63,46 @@ export const BudsSlice = createSlice({
         }
       }
     },
-    setNotificationBud: (state, action) => {
+    setNotificationProduct: (state, action) => {
       state.notification = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    setInShop: (state) => {
+      state.inShop = [];
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(GetBudsAsync.pending, (state) => {
+      .addCase(GetProductsAsync.pending, (state) => {
         state.loading = true;
       })
-      .addCase(GetBudsAsync.fulfilled, (state, action) => {
+      .addCase(GetProductsAsync.fulfilled, (state, action) => {
         state.loading = false;
         state.error = "";
         state.data = action.payload;
+
+        if (action.payload?.response?.status === 401) {
+          state.error = action.payload?.response?.data;
+        }
       })
-      .addCase(GetBudsAsync.rejected, (state, action) => {
+      .addCase(GetProductsAsync.rejected, (state, action) => {
         state.loading = false;
-        state.error = "";
+        state.error = action.payload;
       });
   },
 });
 
 export const selectTotalCount = (state: RootState) =>
-  state.buds.inShop.reduce((total, item) => total + item.count, 0);
+  state.products.inShop.reduce((total, item) => total + item.count, 0);
 
-export const { incrementBud, decrementBud, setNotificationBud } =
-  BudsSlice.actions;
+export const {
+  incrementProduct,
+  decrementProduct,
+  setNotificationProduct,
+  setError,
+  setInShop,
+} = productsSlice.actions;
 
-export default BudsSlice.reducer;
+export default productsSlice.reducer;

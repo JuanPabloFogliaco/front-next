@@ -1,7 +1,16 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { decrementBud, incrementBud } from "../../redux/slices/budsSlice";
-import { PostOrderAsync } from "../../redux/slices/orderSlice";
 import {
+  decrementProduct,
+  incrementProduct,
+  setInShop,
+} from "../../redux/slices/productsSlice";
+import {
+  PostOrderAsync,
+  setErrorOrder,
+  setSuccesOrder,
+} from "../../redux/slices/orderSlice";
+import {
+  ButtonNewOrder,
   ButtonSend,
   DecrementtBtn,
   IncrementBtn,
@@ -10,12 +19,17 @@ import {
   OptionsItemDetail,
   Separator,
   TitleDetail,
+  TitleErrorOrder,
   TitleItemDetail,
+  TitleSuccessOrder,
   Wrapper,
+  WrapperButtons,
 } from "./styleDropDown";
 
 const Dropdown = () => {
-  const buds = useAppSelector((state) => state.buds.inShop);
+  const products = useAppSelector((state) => state.products.inShop);
+  const succesOrder = useAppSelector((state) => state.order.succesOrder);
+  const orderError = useAppSelector((state) => state.order.error);
   const dispatch = useAppDispatch();
 
   const sendOrder = async () => {
@@ -23,19 +37,39 @@ const Dropdown = () => {
     dispatch(
       PostOrderAsync({
         userEmail: email ? email : "",
-        order: buds,
+        order: products,
       })
     );
+    if (products.length !== 0 && succesOrder) {
+      setTimeout(() => {
+        cleanDetailOrderInShop();
+      }, 9000);
+    }
+  };
+
+  const cleanDetailOrderInShop = async () => {
+    dispatch(setInShop());
+    dispatch(setSuccesOrder());
+    dispatch(setErrorOrder());
+  };
+
+  const returnErrorOrSuccess = () => {
+    if (products.length !== 0 && orderError) {
+      return <TitleErrorOrder>{orderError}</TitleErrorOrder>;
+    }
+    if (products.length !== 0 && succesOrder) {
+      return <TitleSuccessOrder>{succesOrder}</TitleSuccessOrder>;
+    }
   };
 
   return (
     <Wrapper>
       <TitleDetail>Detalle del pedido</TitleDetail>
       <ListDetail>
-        {buds.length === 0 && "No hay elementos agregados."}
+        {products.length === 0 && "No hay elementos agregados."}
         <Separator />
-        {buds &&
-          buds?.map((e: any) => (
+        {products &&
+          products?.map((e: any) => (
             <ItemDetail key={e.name}>
               <TitleItemDetail>{e.name}</TitleItemDetail>
               <OptionsItemDetail>
@@ -43,7 +77,7 @@ const Dropdown = () => {
                 <Separator />
                 <IncrementBtn
                   onClick={() =>
-                    dispatch(incrementBud({ name: e.name, count: 1 }))
+                    dispatch(incrementProduct({ name: e.name, count: 1 }))
                   }
                 >
                   +
@@ -51,7 +85,7 @@ const Dropdown = () => {
                 <Separator />
                 <DecrementtBtn
                   onClick={() =>
-                    dispatch(decrementBud({ name: e.name, count: 1 }))
+                    dispatch(decrementProduct({ name: e.name, count: 1 }))
                   }
                 >
                   -
@@ -60,17 +94,33 @@ const Dropdown = () => {
             </ItemDetail>
           ))}
 
-        <ButtonSend
-          onClick={() => sendOrder()}
-          disabled={buds.length == 0}
-          style={
-            buds.length === 0
-              ? { background: "#b3b3b3", cursor: "no-drop" }
-              : {}
-          }
-        >
-          Pedir
-        </ButtonSend>
+        {returnErrorOrSuccess()}
+
+        <WrapperButtons>
+          <ButtonSend
+            onClick={() => sendOrder()}
+            disabled={products.length == 0}
+            style={
+              products.length === 0
+                ? { background: "#b3b3b3", cursor: "no-drop" }
+                : {}
+            }
+          >
+            Pedir
+          </ButtonSend>
+
+          {succesOrder && (
+            <>
+              <Separator /> <Separator />
+            </>
+          )}
+
+          {succesOrder && (
+            <ButtonNewOrder onClick={() => cleanDetailOrderInShop()}>
+              Nueva
+            </ButtonNewOrder>
+          )}
+        </WrapperButtons>
       </ListDetail>
     </Wrapper>
   );

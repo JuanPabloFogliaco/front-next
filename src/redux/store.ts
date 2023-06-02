@@ -2,7 +2,7 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import loginSlice from "./slices/loginSlice";
 import registerSlice from "./slices/registerSlice";
 import userSlice from "./slices/userSlice";
-import budsSlice from "./slices/budsSlice";
+import productsSlice from "./slices/productsSlice";
 import orderSlice from "./slices/orderSlice";
 
 export const store = configureStore({
@@ -10,7 +10,7 @@ export const store = configureStore({
     login: loginSlice,
     register: registerSlice,
     user: userSlice,
-    buds: budsSlice,
+    products: productsSlice,
     order: orderSlice
   },
 });

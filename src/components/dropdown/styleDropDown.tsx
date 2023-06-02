@@ -94,6 +94,42 @@ export const ButtonSend = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border:none;
+  border: none;
   font-size: 15px;
+`;
+
+export const ButtonNewOrder = styled.button`
+  width: 100px;
+  height: 40px;
+  background: white;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid black;
+  font-size: 15px;
+`;
+
+export const TitleErrorOrder = styled.div`
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 10px;
+  color: red;
+`;
+
+export const TitleSuccessOrder = styled.div`
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 10px;
+  color: green;
+`;
+
+export const WrapperButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  justify-content: center;
 `;

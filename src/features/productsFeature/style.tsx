@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WrapperBuds = styled.div`
+export const WrapperProducts = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
