@@ -1,0 +1,22 @@
+# Imagen base
+FROM node:14-alpine
+
+# Directorio de trabajo
+WORKDIR /app/frontend
+
+# Copia de archivos de configuración y dependencias
+COPY package*.json ./
+RUN npm install
+
+# Copia de código fuente
+COPY . .
+
+# Definir la variable de entorno
+ENV NEXT_PUBLIC_API_URL_DEV=http://localhost:8080
+
+# Puerto de exposición
+EXPOSE 3000
+
+# Comando para iniciar la aplicación en modo de desarrollo
+CMD ["npm", "run", "dev"]
+

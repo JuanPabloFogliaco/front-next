@@ -1,30 +1,32 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { InsertOrderBudsAPI } from "../../pages/api/order";
+import { InsertOrderProductsAPI } from "../../pages/api/order";
 
 interface IPostOrderAsync {
   userEmail: string;
-  order: Array<IOrderBuds>;
+  order: Array<IOrderProducts>;
 }
 
-interface IOrderBuds {
+interface IOrderProducts {
   name: string;
   count: number;
 }
 
 interface IInitalStateOrder {
   error: any;
+  succesOrder: any;
   loading: boolean;
 }
 
 const initialState: IInitalStateOrder = {
   error: "",
+  succesOrder: "",
   loading: false,
 };
 
 export const PostOrderAsync = createAsyncThunk(
   "order",
   async (request: IPostOrderAsync) => {
-    const response = await InsertOrderBudsAPI(request);
+    const response = await InsertOrderProductsAPI(request);
     return response;
   }
 );
@@ -33,7 +35,14 @@ export const OrderSlice = createSlice({
   name: "order",
   initialState,
 
-  reducers: {},
+  reducers: {
+    setSuccesOrder: (state) => {
+      state.succesOrder = "";
+    },
+    setErrorOrder: (state) => {
+      state.error = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(PostOrderAsync.pending, (state) => {
@@ -41,7 +50,14 @@ export const OrderSlice = createSlice({
       })
       .addCase(PostOrderAsync.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+
+        state.succesOrder = action.payload;
+        state.error = "";
+
+        if (action.payload?.response?.status === 404) {
+          console.log("404 ----->", action.payload?.response?.data?.message);
+          state.error = action.payload?.response?.data?.message;
+        }
       })
       .addCase(PostOrderAsync.rejected, (state, action) => {
         state.loading = false;
@@ -50,6 +66,6 @@ export const OrderSlice = createSlice({
   },
 });
 
-export const {} = OrderSlice.actions;
+export const { setSuccesOrder, setErrorOrder } = OrderSlice.actions;
 
 export default OrderSlice.reducer;
