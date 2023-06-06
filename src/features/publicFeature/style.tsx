@@ -39,11 +39,13 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0);
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
   animation: ${fadein} 3s forwards;
+  text-align:center;
 `;
 
 const WrapperButtons = styled.div`
   display: flex;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   justify-content: space-around;
   align-items: center;
 `;

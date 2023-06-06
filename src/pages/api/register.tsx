@@ -17,6 +17,7 @@ export const RegisterAPI = async (request: IRegisterAsync) => {
     });
     if (response.data.accessToken) {
       localStorage.setItem("access_token", response.data.accessToken);
+      localStorage.setItem("email", email);
       return;
     }
     if (response.data.error) {

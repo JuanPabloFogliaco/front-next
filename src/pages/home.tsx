@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { UserAsync } from "../redux/slices/userSlice";
 import { setIsLoggedLogin } from "../redux/slices/loginSlice";
 import { setIsLoggedRegister } from "../redux/slices/registerSlice";
-import LayoutPageMenu from "../components/globals/LayoutPageMenu";
+import LayoutPageComponent from "../components/globals/LayoutPageComponent";
 import { GetProductsAsync, setError } from "../redux/slices/productsSlice";
 import { DetailShopFeature } from "../features/detailShopFeature";
 import { ProductsFeature } from "../features/productsFeature";
@@ -39,9 +39,9 @@ export default function Home() {
   }, []);
 
   return (
-    <LayoutPageMenu handleLogout={handleLogout} data={data}>
+    <LayoutPageComponent handleLogout={handleLogout} data={data}>
       <DetailShopFeature />
       <ProductsFeature />
-    </LayoutPageMenu>
+    </LayoutPageComponent>
   );
 }

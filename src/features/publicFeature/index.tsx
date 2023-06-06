@@ -1,9 +1,10 @@
 import react, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { WrapperButtons, Container, Wrapper } from "./style";
-import LogoComponent from "../../componentss/logoComponent";
-import TitleComponent from "../../componentss/titleComponent";
-import ButtonComponent from "../../componentss/buttonComponent";
+import LogoComponent from "../../components/logoComponent";
+import TitleComponent from "../../components/titleComponent";
+import ButtonComponent from "../../components/buttonComponent";
+import { PrimaryText, ButtonLoginText, ButtonRegisterText } from "../../constants/texts/textsPublixFeature";
 
 export default function PublicFeature() {
   const router = useRouter();
@@ -25,10 +26,10 @@ export default function PublicFeature() {
     <Wrapper id="publicFeature">
       <Container>
         <LogoComponent width={200} height={200} url="/logo.png" />
-        <TitleComponent primary title="Club social de cannabis" />
+        <TitleComponent primary title={PrimaryText} />
         <WrapperButtons>
-          <ButtonComponent title="Iniciar sesión" onClick={navigateLogin} />
-          <ButtonComponent title="Unirse al club" onClick={navigateRegister} />
+          <ButtonComponent title={ButtonLoginText} onClick={navigateLogin} />
+          <ButtonComponent title={ButtonRegisterText} onClick={navigateRegister} />
         </WrapperButtons>
       </Container>
     </Wrapper>

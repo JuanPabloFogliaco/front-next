@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
-import Register from "../../../components/register/register";
 import { useEffect } from "react";
-import { useAppSelector } from "../../../redux/hooks";
+import RegisterFeature from "../../../features/registerFeature";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -11,5 +10,5 @@ export default function RegisterPage() {
     if (token) router.push("/home");
   }, []);
 
-  return <Register />;
+  return <RegisterFeature />;
 }
