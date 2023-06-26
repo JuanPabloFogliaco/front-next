@@ -7,7 +7,7 @@ export const WrapperLogin = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/infobae/DNSK4AOL7LP45EC74W3V4RKTTM.jpg");
+  background-image: url("https://www.bbva.ch/wp-content/uploads/2021/10/08_1-Ventajas-y-desventajas-de-invertir-en-cannabis-medicinal.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -27,14 +27,14 @@ export const ContainerLogin = styled.div`
   padding: 10px;
   margin: 0;
   background-color: rgba(0, 0, 0, 0);
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   animation: fadein 3s forwards;
   @keyframes fadein {
     from {
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.5);
     }
     to {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 `;

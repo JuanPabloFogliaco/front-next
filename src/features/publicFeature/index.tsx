@@ -1,10 +1,22 @@
 import react, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { WrapperButtons, Container, Wrapper } from "./style";
-import LogoComponent from "../../components/logoComponent";
+import {
+  Container,
+  VideoBackground,
+  Wrapper,
+  WrapperButtons,
+  WrapperDescription,
+  WrapperVideoContainer,
+} from "./style";
 import TitleComponent from "../../components/titleComponent";
 import ButtonComponent from "../../components/buttonComponent";
-import { PrimaryText, ButtonLoginText, ButtonRegisterText } from "../../constants/texts/textsPublixFeature";
+import {
+  PrimaryText,
+  ButtonLoginText,
+  ButtonRegisterText,
+  DescriptionText,
+} from "../../constants/texts/textsPublixFeature";
+import HeaderComponent from "../../components/headerComponent";
 
 export default function PublicFeature() {
   const router = useRouter();
@@ -23,15 +35,31 @@ export default function PublicFeature() {
   }, []);
 
   return (
-    <Wrapper id="publicFeature">
-      <Container>
-        <LogoComponent width={200} height={200} url="/logo.png" />
-        <TitleComponent primary title={PrimaryText} />
-        <WrapperButtons>
-          <ButtonComponent title={ButtonLoginText} onClick={navigateLogin} />
-          <ButtonComponent title={ButtonRegisterText} onClick={navigateRegister} />
-        </WrapperButtons>
-      </Container>
+    <Wrapper>
+      <WrapperVideoContainer>
+        <HeaderComponent
+          titleBtnPrimary={ButtonLoginText}
+          links={["REPROCAN", "NOSOTROS", "CONTACTO"]}
+          data={[]}
+          handleLogout={() => navigateLogin()}
+        />
+        <VideoBackground autoPlay loop muted>
+          <source src="/video_marihuana.mp4" type="video/mp4" />
+        </VideoBackground>
+
+        <Container>
+          <TitleComponent primary key={1} title={PrimaryText} />
+          <WrapperDescription>
+            <TitleComponent third key={1} title={DescriptionText} />
+          </WrapperDescription>
+          <WrapperButtons>
+            <ButtonComponent
+              onClick={() => navigateRegister()}
+              title={ButtonRegisterText}
+            />
+          </WrapperButtons>
+        </Container>
+      </WrapperVideoContainer>
     </Wrapper>
   );
 }

@@ -7,7 +7,7 @@ export const NotificationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  height: auto;
+  height: 5px;
   width: 90% ;
 `;
 
@@ -20,6 +20,7 @@ export const Notification = styled.div`
   transition: opacity 0.3s ease;
   opacity: 1;
   color: white;
+  font-size: 14px;
 `;
 
 export const NotificationMessage = styled.p`

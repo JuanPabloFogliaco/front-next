@@ -11,6 +11,7 @@ export const GetProductsAPI = async () => {
     if (response.data.error) {
       return response.data.error;
     }
+    console.log(response.data)
     return response.data;
   } catch (error: any) {
     return error;

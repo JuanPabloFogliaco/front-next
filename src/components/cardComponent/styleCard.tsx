@@ -30,7 +30,7 @@ export const CardOptions = styled.div`
   height: 100%;
 `;
 
-export const IncrementBtn = styled.div`
+export const IncrementBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +40,7 @@ export const IncrementBtn = styled.div`
   cursor: pointer;
   border-radius: 12px;
   color: white;
+  border: 0px solid;
 `;
 
 export const Options = styled.div`

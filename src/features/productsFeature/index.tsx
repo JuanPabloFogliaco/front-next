@@ -37,13 +37,16 @@ export const ProductsFeature = () => {
       {!loading &&
         Array.isArray(products) &&
         products.map((e: any) => {
+          const destruct = e;
+          const data = { name: e.name, stock: e.stock, img: e.urlImg };
           return (
             <>
               <CardComponent
-                increment={() => handleIncrement(e.name)}
-                key={e.name}
-                title={e.name}
-                imageSrc="https://positronics.eu/wp-content/uploads/2022/07/amnesiamistery.jpg"
+                increment={() => handleIncrement(data.name)}
+                key={data.name}
+                title={data.name}
+                stock={data.stock}
+                imageSrc={data.img }
               />
               <NotificationComponent
                 setNotifications={(e) => setNotifications(e)}

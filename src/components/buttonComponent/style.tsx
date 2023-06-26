@@ -8,14 +8,15 @@ export const Button = styled.a`
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  width: 145px;
+  width: 165px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  box-shadow: 1px 1px 7px black;
+  z-index: 2;
   &:hover {
-    border: solid white 1px;
+    border: solid black 1px;
   }
 
   @media (max-width: 425px) {

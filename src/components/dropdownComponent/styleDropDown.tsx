@@ -2,19 +2,20 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 350px;
+  max-width: 460px;
   height: auto;
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   position: absolute;
   border: 1px solid black;
-  right: 20px;
+  right: 22px;
   padding: 15px;
+  z-index: 100;
   @media (max-width: 425px) {
     right: 11px;
     width: 300px;
@@ -29,16 +30,17 @@ export const TitleDetail = styled.div`
 
 export const ListDetail = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: auto;
+  font-size: 12px;
 `;
 
 export const ItemDetail = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
   width: 100%;
@@ -53,11 +55,12 @@ export const TitleItemDetail = styled.div`
 
 export const OptionsItemDetail = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
   width: 25%;
   height: 30px;
+  font-size: 16px;
 `;
 
 export const IncrementBtn = styled.div`
@@ -70,6 +73,8 @@ export const IncrementBtn = styled.div`
   cursor: pointer;
   border-radius: 12px;
   color: white;
+  padding: 4px;
+  font-size: 16px;
 `;
 
 export const DecrementtBtn = styled.div`
@@ -82,6 +87,8 @@ export const DecrementtBtn = styled.div`
   cursor: pointer;
   border-radius: 12px;
   color: white;
+  padding: 4px;
+  font-size: 16px;
 `;
 
 export const Separator = styled.div`

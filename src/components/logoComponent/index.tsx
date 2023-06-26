@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface ILogoComponent {
   url: string;
   width: number;
@@ -7,13 +5,5 @@ interface ILogoComponent {
 }
 
 export default function LogoComponent({ url, width, height }: ILogoComponent) {
-  return (
-    <Image
-      width={width}
-      height={height}
-      alt="Logo"
-      src={url}
-      style={{ zIndex: 1 }}
-    />
-  );
+  return <img width={width} height={height} alt="Logo" src={url} />;
 }

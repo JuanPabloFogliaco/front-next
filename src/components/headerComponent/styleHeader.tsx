@@ -12,9 +12,9 @@ export const Link = styled.a`
   border: none;
   border-radius: 10px;
   border: solid #b3b3b3 1px;
-  color: #121212;
+  color: #81b622;
   font-size: 16px;
-  width: 90px;
+  width: 120px;
   height: 42px;
   display: flex;
   justify-content: center;
@@ -26,6 +26,11 @@ export const Link = styled.a`
     border: solid #121212 1px;
     color: white;
   }
+  z-index: 10;
+  border-radius: 22px;
+  padding: 5px;
+  box-shadow: 1px 1px 7px black;
+  margin-left: 7px;
 `;
 
 // Header component
@@ -34,10 +39,11 @@ export const HeaderWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  background-color: white;
-  box-shadow: 1px 1px 15px 1px #b3b3b3
+  background-color: transparent;
+  box-shadow: 1px 1px 15px 1px black
   width: 100%;
   padding: 20px;
+ 
 `;
 
 // HeaderItems component
@@ -46,6 +52,9 @@ export const HeaderItems = styled.div`
   align-items: center;
   justify-content: flex-end;
   height: 100%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const HeaderItem = styled.div`
@@ -58,3 +67,4 @@ export const Icon = styled.i`
   font-size: 14px;
   margin-right: 8px;
 `;
+

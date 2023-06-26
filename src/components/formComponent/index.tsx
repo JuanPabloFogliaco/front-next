@@ -1,12 +1,6 @@
 import InputComponent from "../inputComponent";
 import TitleComponent from "../titleComponent";
-import {
-  Container,
-  ContainerButtons,
-  ContainerGroup,
-  Form,
-  Group,
-} from "./style";
+import { ContainerButtons, ContainerGroup, Form, Group } from "./style";
 import ErrorComponent from "../errorComponent";
 import ButtonComponent from "../buttonComponent";
 import {
@@ -66,43 +60,42 @@ export default function FormComponent({
 
   return (
     <Form>
-      <Container>
-        <TitleComponent secondary title={PRIMARY_TEXT} />
-        <ContainerGroup>
-          <Group>
-            <TitleComponent third title={EMAIL_TEXT} />
-            <InputComponent
-              type="email"
-              handleChange={(e) => handleEmailChange(e)}
-              value={values.email}
-            />
-          </Group>
+      <TitleComponent secondary title={PRIMARY_TEXT} />
 
-          {isRegister && renderGroupUserName()}
+      <ContainerGroup>
+        <Group>
+          <TitleComponent third title={EMAIL_TEXT} />
+          <InputComponent
+            type="email"
+            handleChange={(e) => handleEmailChange(e)}
+            value={values.email}
+          />
+        </Group>
 
-          <Group>
-            <TitleComponent third title={PASSWORD_TEXT} />
-            <InputComponent
-              type="password"
-              handleChange={(e) => handlePasswordChange(e)}
-              value={values.password}
-            />
-          </Group>
+        {isRegister && renderGroupUserName()}
 
-          {error && renderErrorOrSuccess()}
+        <Group>
+          <TitleComponent third title={PASSWORD_TEXT} />
+          <InputComponent
+            type="password"
+            handleChange={(e) => handlePasswordChange(e)}
+            value={values.password}
+          />
+        </Group>
 
-          <ContainerButtons>
-            <ButtonComponent
-              title="Ingresar"
-              onClick={(e) => handleSubmitChange(e)}
-            />
-            <ButtonComponent
-              title={BUTTON_BACK_TEXT}
-              onClick={(e) => backToPage(e)}
-            />
-          </ContainerButtons>
-        </ContainerGroup>
-      </Container>
+        {error && renderErrorOrSuccess()}
+      </ContainerGroup>
+
+      <ContainerButtons>
+        <ButtonComponent
+          title="Ingresar"
+          onClick={(e) => handleSubmitChange(e)}
+        />
+        <ButtonComponent
+          title={BUTTON_BACK_TEXT}
+          onClick={(e) => backToPage(e)}
+        />
+      </ContainerButtons>
     </Form>
   );
 }

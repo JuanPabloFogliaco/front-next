@@ -13,6 +13,7 @@ export const ButtonDropdown = styled.div`
   background: #b3b3b3;
   color: white;
   cursor: pointer;
+  margin-bottom: 7px ;
 `;
 
 export const Separator = styled.div`

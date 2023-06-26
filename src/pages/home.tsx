@@ -8,6 +8,7 @@ import LayoutPageComponent from "../components/globals/LayoutPageComponent";
 import { GetProductsAsync, setError } from "../redux/slices/productsSlice";
 import { DetailShopFeature } from "../features/detailShopFeature";
 import { ProductsFeature } from "../features/productsFeature";
+import { ButtonLoginText } from "../constants/texts/textsPublixFeature";
 
 export default function Home() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default function Home() {
   }, []);
 
   return (
-    <LayoutPageComponent handleLogout={handleLogout} data={data}>
+    <LayoutPageComponent handleLogout={handleLogout} data={data} titleBtnPrimary={ButtonLoginText}>
       <DetailShopFeature />
       <ProductsFeature />
     </LayoutPageComponent>
